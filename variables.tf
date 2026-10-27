@@ -3,10 +3,16 @@ variable "named_location_lookup" {
 Map of named_location_lookup, attributes below
 Required:
     - display_name
+Optional:
+    - timeouts (block):
+        - read (optional)
 EOT
 
   type = map(object({
     display_name = string
+    timeouts = optional(object({
+      read = optional(string)
+    }))
   }))
   validation {
     condition = alltrue([
